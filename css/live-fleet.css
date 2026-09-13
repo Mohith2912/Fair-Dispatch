@@ -1,0 +1,275 @@
+/* Live Fleet Layout */
+.live-fleet-page {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.7fr 1.1fr; /* Map : Right panel */
+    gap: 16px;
+    padding: 16px 18px;
+    background: var(--bg-main, #f8fafc);
+}
+
+/* Left side: map inside a card */
+.live-fleet-map-card {
+    background: var(--bg-card, #ffffff);
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 140px); /* Fill available height */
+}
+
+.live-fleet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.live-fleet-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary, #1a202c);
+    margin: 0;
+}
+
+.live-fleet-subtitle {
+    font-size: 12px;
+    color: var(--text-muted, #718096);
+    margin-top: 4px;
+}
+
+.live-fleet-kpis {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.live-fleet-kpi {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #f3f4ff;
+    font-size: 11px;
+    color: #3730a3;
+    font-weight: 500;
+}
+
+#live-fleet-map {
+    flex: 1;
+    border-radius: 14px;
+    overflow: hidden;
+    min-height: 400px;
+    background: #e2e8f0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Right side: Drivers panel */
+.live-fleet-right-panel {
+    background: var(--bg-card, #ffffff);
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 140px);
+    overflow: hidden;
+}
+
+.right-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.right-panel-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary, #1a202c);
+}
+
+.driver-filter-chips {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    border: 1px solid #e5e7eb;
+    color: var(--text-muted, #718096);
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-weight: 500;
+}
+
+.chip:hover { border-color: #3b82f6; background: #eff6ff; }
+.chip.active { border-color: #3b82f6; color: #1d4ed8; background: #eff6ff; }
+
+/* Scrollable area for driver cards */
+.driver-list-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Driver card */
+.driver-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    padding: 12px 10px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 10px;
+    transition: all 0.15s ease;
+    cursor: pointer;
+}
+
+.driver-card:hover {
+    border-color: #3b82f6;
+    background: #f9fafb;
+    transform: translateY(-2px);
+}
+
+.driver-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f3f4f6;
+}
+
+.driver-main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.driver-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary, #1a202c);
+}
+
+.driver-meta {
+    display: flex;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--text-muted, #718096);
+    align-items: center;
+}
+
+.badge-status {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.badge-balanced { background: #ecfdf3; color: #15803d; }
+.badge-watch { background: #fef9c3; color: #854d0e; }
+.badge-overload { background: #fee2e2; color: #b91c1c; }
+
+.driver-load-bar {
+    margin-top: 6px;
+    height: 4px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+}
+
+.driver-load-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #3b82f6, #22c55e);
+}
+
+.driver-workload {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    align-self: center;
+}
+
+/* ===== Driver Modal ===== */
+.driver-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.driver-modal-overlay.open { display: flex; }
+
+.driver-modal {
+    width: min(500px, 90vw);
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.driver-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.driver-modal-title { display: flex; align-items: center; gap: 12px; }
+.driver-modal-title img { width: 48px; height: 48px; border-radius: 50%; }
+.driver-modal-title .name { font-weight: 700; font-size: 16px; }
+.driver-modal-title .sub { font-size: 12px; color: #64748b; }
+
+.driver-modal-close {
+    background: none; border: none; font-size: 24px; color: #64748b; cursor: pointer;
+}
+
+.driver-modal-body { padding: 20px; }
+
+.driver-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.driver-kpi {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.driver-kpi .label { font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; }
+.driver-kpi .value { font-size: 18px; font-weight: 700; color: #0f172a; margin-top: 4px; }
+
+.driver-modal-actions {
+    display: flex; gap: 12px;
+}
+.driver-modal-actions button {
+    flex: 1; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none;
+}
+.btn-primary { background: #2563eb; color: white; }
+.btn-ghost { background: #f1f5f9; color: #475569; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .live-fleet-page { grid-template-columns: 1fr; grid-template-rows: 400px 1fr; }
+}

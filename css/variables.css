@@ -1,0 +1,92 @@
+:root {
+    /* Brand Colors */
+    --primary: #005bea;
+    --primary-light: #3b82f6;
+    --primary-dark: #1e40af;
+    --secondary: #00c6fb;
+    
+    /* Status Colors */
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --success-dark: #065f46;
+    
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+    --warning-dark: #92400e;
+    
+    --danger: #ef4444;
+    --danger-light: #fee2e2;
+    --danger-dark: #991b1b;
+    
+    --info: #3b82f6;
+    --info-light: #dbeafe;
+    --info-dark: #1e3a8a;
+    
+    /* Neutral Colors */
+    --white: #ffffff;
+    --black: #000000;
+    
+    /* Background Colors */
+    --bg-body: #f8f9fc;
+    --bg-card: #ffffff;
+    --bg-sidebar: #ffffff;
+    --bg-input: #f9fafb;
+    --bg-hover: #f3f4f6;
+    --bg-active: rgba(0, 91, 234, 0.08);
+    
+    /* Text Colors */
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --text-light: #a0aec0;
+    --text-white: #ffffff;
+    
+    /* Border Colors */
+    --border: #e2e8f0;
+    --border-light: #edf2f7;
+    --border-dark: #cbd5e0;
+    
+    /* Spacing Scale */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    
+    /* Border Radius */
+    --radius-xs: 4px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+    
+    /* Layout Dimensions */
+    --sidebar-width: 260px;
+    --topbar-height: 64px;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition-slow: 350ms ease;
+    
+    /* Z-Index Scale */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-fixed: 300;
+    --z-modal-backdrop: 400;
+    --z-modal: 500;
+    --z-popover: 600;
+    --z-tooltip: 700;
+}

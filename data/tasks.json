@@ -1,0 +1,43 @@
+[
+  {
+    "id": "T1",
+    "address": "Flat 305, Sunshine Apartments",
+    "expected_weight": 12,
+    "difficulty": 7,
+    "stairs_factor": true,
+    "parking_factor": 1.2,
+    "status": "pending",
+    "assigned_driver": null
+  },
+  {
+    "id": "T2",
+    "address": "Villa GF, Lakeside Colony",
+    "expected_weight": 5,
+    "difficulty": 2,
+    "stairs_factor": false,
+    "parking_factor": 1,
+    "status": "completed",
+    "assigned_driver": "D2",
+    "completed_at": "2026-01-24T14:06:50.355Z"
+  },
+  {
+    "id": "T3",
+    "address": "4th Floor, No Elevator",
+    "expected_weight": 15,
+    "difficulty": 9,
+    "stairs_factor": true,
+    "parking_factor": 1.5,
+    "status": "pending",
+    "assigned_driver": "D1"
+  },
+  {
+    "id": "T4",
+    "address": "Shop GF, Market Road",
+    "expected_weight": 8,
+    "difficulty": 3,
+    "stairs_factor": false,
+    "parking_factor": 1,
+    "status": "pending",
+    "assigned_driver": null
+  }
+]

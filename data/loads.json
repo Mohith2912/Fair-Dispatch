@@ -1,0 +1,25 @@
+[
+  {
+    "id": "L1",
+    "pickupAddress": "Warehouse A, New Delhi",
+    "dropAddress": "123 Main St, New Delhi",
+    "weight": 50,
+    "distanceKm": 12,
+    "difficulty": "Medium",
+    "status": "unassigned",
+    "assignedTo": null,
+    "createdAt": 1735900000000
+  },
+  {
+    "id": "L2",
+    "pickupAddress": "Warehouse B, Gurgaon",
+    "dropAddress": "456 Park Ave, Gurgaon",
+    "weight": 35,
+    "distanceKm": 8,
+    "difficulty": "Hard",
+    "status": "assigned",
+    "assignedTo": "driver2",
+    "createdAt": 1735901000000,
+    "assignedAt": 1735901300000
+  }
+]

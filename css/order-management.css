@@ -1,0 +1,370 @@
+/* ========================================
+   ORDER MANAGEMENT STYLES
+======================================== */
+
+.order-management-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Upload Section */
+.order-upload-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+}
+
+.upload-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.upload-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.upload-methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.upload-method-card {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.upload-method-card:hover {
+    border-color: var(--primary);
+    background: rgba(0, 91, 234, 0.02);
+}
+
+.upload-method-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: rgba(0, 91, 234, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.upload-method-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.upload-method-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Manual Form */
+.manual-order-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea {
+    padding: 10px 12px;
+    border-radius: var(--radius-base);
+    border: 1px solid var(--border);
+    background: var(--bg-body);
+    font-size: 14px;
+    color: var(--text-primary);
+    font-family: inherit;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 91, 234, 0.1);
+}
+
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 8px;
+}
+
+.btn-form-submit,
+.btn-form-cancel {
+    padding: 10px 20px;
+    border-radius: var(--radius-base);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-form-submit {
+    background: var(--primary);
+    color: white;
+    border: none;
+}
+
+.btn-form-submit:hover {
+    background: var(--primary-hover);
+}
+
+.btn-form-cancel {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.btn-form-cancel:hover {
+    background: var(--bg-hover);
+}
+
+/* CSV Upload */
+.csv-upload-area {
+    margin-top: 16px;
+}
+
+.csv-drop-zone {
+    border: 2px dashed var(--border);
+    border-radius: var(--radius-md);
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.csv-drop-zone:hover,
+.csv-drop-zone.drag-over {
+    border-color: var(--primary);
+    background: rgba(0, 91, 234, 0.02);
+}
+
+.csv-drop-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(0, 91, 234, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+}
+
+.csv-drop-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.csv-drop-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.btn-browse-csv {
+    padding: 8px 16px;
+    border-radius: var(--radius-base);
+    background: var(--primary);
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.csv-template-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.csv-template-link:hover {
+    text-decoration: underline;
+}
+
+/* Orders Table */
+.orders-table-section {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+}
+
+.orders-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.orders-table-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.orders-table-count {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.orders-table-wrapper {
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.orders-table thead {
+    background: var(--bg-body);
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 12px 14px;
+    text-align: left;
+}
+
+.orders-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.orders-table tbody tr:nth-child(even) {
+    background: #fafbff;
+}
+
+.orders-table tbody tr:hover {
+    background: rgba(0, 91, 234, 0.03);
+}
+
+.order-id-cell {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.order-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.order-status-badge.unassigned {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+}
+
+.order-status-badge.assigned {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.order-status-badge.completed {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.order-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-order-action {
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    border: none;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-order-edit {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.btn-order-edit:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.btn-order-delete {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.btn-order-delete:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+/* Hidden file input */
+#csv-file-input {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .upload-methods {
+        grid-template-columns: 1fr;
+    }
+    
+    .manual-order-form {
+        grid-template-columns: 1fr;
+    }
+}

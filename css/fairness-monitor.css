@@ -1,0 +1,362 @@
+/* ========================================
+   FAIRNESS MONITOR STYLES
+======================================== */
+
+.fairness-monitor-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Top Row: Overall status + time range */
+
+.fairness-top-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+    gap: 16px;
+}
+
+.fairness-status-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.fairness-status-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+}
+
+.fairness-status-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.fairness-status-sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Status coloring */
+
+.fairness-status-card.status-healthy {
+    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.03);
+}
+
+.fairness-status-card.status-warning {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.03);
+}
+
+.fairness-status-card.status-critical {
+    border-color: rgba(239, 68, 68, 0.3);
+    background: rgba(239, 68, 68, 0.03);
+}
+
+.fairness-time-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.fairness-time-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+}
+
+.fairness-time-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.fm-time-btn {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-body);
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.fm-time-btn.active {
+    border-color: var(--primary);
+    background: rgba(0, 91, 234, 0.06);
+    color: var(--primary);
+}
+
+/* Main layout: table left, explanation right */
+
+.fairness-main-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.3fr);
+    gap: 20px;
+}
+
+/* Left: table panel */
+
+.fairness-table-panel {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fairness-table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.fairness-table-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.fairness-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.fm-filter-btn {
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: var(--bg-body);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.fm-filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #ffffff;
+}
+
+.fairness-table-wrapper {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+}
+
+.fairness-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.fairness-table thead {
+    background: var(--bg-body);
+}
+
+.fairness-table th,
+.fairness-table td {
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.fairness-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.fairness-table tbody tr:nth-child(even) {
+    background: #fafbff;
+}
+
+.fairness-table tbody tr:hover {
+    background: rgba(0, 91, 234, 0.03);
+}
+
+.fairness-row {
+    cursor: pointer;
+}
+
+.fairness-table-footnote {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Generic badges (used for status column) */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.badge-warning {
+    background: rgba(245, 158, 11, 0.1);
+    color: #b45309;
+}
+
+.badge-danger {
+    background: rgba(239, 68, 68, 0.1);
+    color: #b91c1c;
+}
+
+.badge-neutral {
+    background: rgba(148, 163, 184, 0.16);
+    color: #475569;
+}
+
+/* Right: explanation panel */
+
+.fairness-explanation-panel {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.fairness-explanation-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fairness-explanation-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.fairness-explanation-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.fm-driver-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    background: var(--bg-body);
+}
+
+.fm-driver-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fm-driver-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    object-fit: cover;
+}
+
+.fm-driver-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.fm-driver-id {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.fm-driver-score {
+    text-align: right;
+}
+
+.fm-score-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.fm-score-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.fm-score-sub {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.fm-section {
+    margin-top: 12px;
+}
+
+.fm-section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.4px;
+}
+
+.fm-text {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 1200px) {
+    .fairness-main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .fairness-top-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .fairness-table-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

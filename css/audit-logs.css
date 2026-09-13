@@ -1,0 +1,302 @@
+/* Audit Logs & PDF Export Page - FEATURE 7 */
+.audit-logs-wrapper {
+    height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Audit Header with Filters and Export */
+.audit-header {
+    background: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    margin-bottom: var(--space-lg);
+}
+
+.audit-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+}
+
+.audit-header-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.btn-export-pdf {
+    padding: 10px 20px;
+    background: var(--danger);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+}
+
+.btn-export-pdf:hover {
+    background: var(--danger-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Audit Filters */
+.audit-filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+}
+
+.audit-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.audit-filter-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.audit-filter-select,
+.audit-filter-input {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    color: var(--text-primary);
+    background: var(--bg-input);
+    transition: all var(--transition-fast);
+}
+
+.audit-filter-select:focus,
+.audit-filter-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 91, 234, 0.1);
+    background: var(--white);
+}
+
+.audit-filter-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-end;
+}
+
+.btn-filter-apply {
+    padding: 10px 16px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.btn-filter-apply:hover {
+    background: var(--primary-dark);
+}
+
+.btn-filter-reset {
+    padding: 10px 16px;
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.btn-filter-reset:hover {
+    background: var(--bg-active);
+    border-color: var(--primary);
+}
+
+/* Audit Logs Container */
+.audit-logs-container {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.audit-logs-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Audit Log Entry */
+.audit-log-entry {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    transition: background var(--transition-fast);
+}
+
+.audit-log-entry:hover {
+    background: var(--bg-hover);
+}
+
+.audit-log-entry:last-child {
+    border-bottom: none;
+}
+
+/* Log Icon */
+.audit-log-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.audit-log-icon.ai {
+    background: rgba(0, 91, 234, 0.1);
+    color: var(--primary);
+}
+
+.audit-log-icon.human {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.audit-log-icon.dispute {
+    background: var(--warning-light);
+    color: var(--warning-dark);
+}
+
+.audit-log-icon.override {
+    background: var(--danger-light);
+    color: var(--danger-dark);
+}
+
+.audit-log-icon.sensor {
+    background: var(--info-light);
+    color: var(--info-dark);
+}
+
+/* Log Content */
+.audit-log-content {
+    flex: 1;
+}
+
+.audit-log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.audit-log-action {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.audit-log-timestamp {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'Courier New', monospace;
+}
+
+.audit-log-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.audit-log-meta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.audit-log-tag {
+    padding: 4px 8px;
+    background: var(--bg-body);
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.audit-log-tag strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Action Type Badges */
+.audit-action-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.audit-action-type.ai {
+    background: rgba(0, 91, 234, 0.1);
+    color: var(--primary);
+}
+
+.audit-action-type.manual {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+/* Empty State */
+.audit-logs-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl);
+    text-align: center;
+}
+
+.audit-logs-empty-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background: var(--bg-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+}
+
+.audit-logs-empty-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.audit-logs-empty-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+}

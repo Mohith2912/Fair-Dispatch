@@ -1,0 +1,387 @@
+/* System Health & Hardware Status Page - FEATURE 6 */
+.system-health-wrapper {
+    height: calc(100vh - 140px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* Global Health Overview */
+.global-health-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+}
+
+.health-overview-card {
+    background: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    transition: all var(--transition-fast);
+}
+
+.health-overview-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.health-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+}
+
+.health-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.health-status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+}
+
+.health-status-indicator.healthy {
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+}
+
+.health-status-indicator.warning {
+    background: var(--warning);
+    box-shadow: 0 0 8px var(--warning);
+}
+
+.health-status-indicator.critical {
+    background: var(--danger);
+    box-shadow: 0 0 8px var(--danger);
+    animation: pulse 2s infinite;
+}
+
+.health-card-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.health-card-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Driver Hardware Status */
+.driver-hardware-container {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.driver-hardware-header {
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.driver-hardware-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.hardware-refresh-btn {
+    padding: 8px 14px;
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--transition-fast);
+}
+
+.hardware-refresh-btn:hover {
+    background: var(--bg-active);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Driver Hardware List */
+.driver-hardware-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-lg);
+}
+
+.driver-hardware-item {
+    background: var(--bg-body);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    transition: all var(--transition-fast);
+}
+
+.driver-hardware-item:last-child {
+    margin-bottom: 0;
+}
+
+.driver-hardware-item:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.driver-hardware-item.has-offline {
+    border-left: 4px solid var(--danger);
+}
+
+/* Driver Hardware Header */
+.driver-hardware-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.driver-hardware-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.driver-hardware-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 2px solid var(--white);
+    box-shadow: var(--shadow-xs);
+}
+
+.driver-hardware-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.driver-hardware-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.driver-hardware-id {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.driver-overall-status {
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.driver-overall-status.all-online {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.driver-overall-status.some-offline {
+    background: var(--warning-light);
+    color: var(--warning-dark);
+}
+
+.driver-overall-status.critical {
+    background: var(--danger-light);
+    color: var(--danger-dark);
+}
+
+/* Sensors Grid */
+.sensors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--space-md);
+}
+
+.sensor-status-card {
+    background: var(--white);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    transition: all var(--transition-fast);
+}
+
+.sensor-status-card:hover {
+    border-color: var(--primary);
+}
+
+.sensor-status-card.offline {
+    background: var(--danger-light);
+    border-color: var(--danger);
+}
+
+.sensor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sensor-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sensor-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sensor-icon.online {
+    background: var(--success-light);
+    color: var(--success-dark);
+}
+
+.sensor-icon.offline {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.sensor-status-text {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.sensor-status-text.online {
+    color: var(--success);
+}
+
+.sensor-status-text.offline {
+    color: var(--danger);
+}
+
+.sensor-last-update {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+
+/* Global Alerts Section */
+.global-alerts-section {
+    background: var(--white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+}
+
+.global-alerts-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.global-alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.global-alert-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--space-md);
+    background: var(--bg-body);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--danger);
+}
+
+.global-alert-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background: var(--danger-light);
+    color: var(--danger-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.global-alert-content {
+    flex: 1;
+}
+
+.global-alert-message {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.global-alert-time {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* Empty State */
+.system-health-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl);
+    text-align: center;
+}
+
+.system-health-empty-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background: var(--success-light);
+    color: var(--success-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.system-health-empty-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.system-health-empty-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+}

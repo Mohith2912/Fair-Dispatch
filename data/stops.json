@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "driverId": "driver1",
+    "code": "DEL001",
+    "address": "123 Main St, New Delhi",
+    "latitude": 28.7041,
+    "longitude": 77.1025,
+    "difficulty": 5,
+    "listedWeight": 2.5,
+    "measuredWeight": 2.6,
+    "status": "pending",
+    "tags": ["Standard"],
+    "feedback": [],
+    "elapsedSeconds": 0,
+    "timeTakenSeconds": 0
+  },
+  {
+    "id": 2,
+    "driverId": "driver1",
+    "code": "DEL002",
+    "address": "456 Park Ave, Gurgaon",
+    "latitude": 28.4595,
+    "longitude": 77.0266,
+    "difficulty": 7,
+    "listedWeight": 3.2,
+    "measuredWeight": null,
+    "status": "pending",
+    "tags": ["Heavy"],
+    "feedback": [],
+    "elapsedSeconds": 0,
+    "timeTakenSeconds": 0
+  },
+  {
+    "id": 3,
+    "driverId": "driver1",
+    "code": "DEL003",
+    "address": "789 Elm Rd, Noida",
+    "latitude": 28.5921,
+    "longitude": 77.006,
+    "difficulty": 3,
+    "listedWeight": 1.5,
+    "measuredWeight": null,
+    "status": "pending",
+    "tags": ["Light"],
+    "feedback": [],
+    "elapsedSeconds": 0,
+    "timeTakenSeconds": 0
+  }
+]

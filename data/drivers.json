@@ -1,0 +1,35 @@
+[
+  {
+    "id": "D1",
+    "name": "Raju Kumar",
+    "fairness_index": 1.2,
+    "disputes": 3,
+    "workload": 140,
+    "experience": "3 yrs",
+    "total_tasks": 28,
+    "avg_difficulty": 7.2,
+    "last_active": "2026-01-25T14:06:50.353Z"
+  },
+  {
+    "id": "D2",
+    "name": "Priya Sharma",
+    "fairness_index": 0.95,
+    "disputes": 0,
+    "workload": 90,
+    "experience": "1 yr",
+    "total_tasks": 18,
+    "avg_difficulty": 4.8,
+    "last_active": "2026-01-25T14:06:50.355Z"
+  },
+  {
+    "id": "D3",
+    "name": "Ajay Patel",
+    "fairness_index": 1.05,
+    "disputes": 1,
+    "workload": 110,
+    "experience": "5 yrs",
+    "total_tasks": 22,
+    "avg_difficulty": 6.1,
+    "last_active": "2026-01-25T14:06:50.355Z"
+  }
+]

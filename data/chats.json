@@ -1,0 +1,33 @@
+{
+  "chatRequests": [
+    {
+      "id": "REQ1",
+      "driverId": "driver1",
+      "driverName": "Rajesh Kumar",
+      "query": "Route issue near Gurgaon, heavy traffic and wrong address.",
+      "status": "pending",
+      "createdAt": 1735900000000
+    }
+  ],
+  "chats": [
+    {
+      "id": "REQ1",
+      "driverId": "driver1",
+      "managerId": "manager1",
+      "messages": [
+        {
+          "id": "MSG1",
+          "sender": "driver",
+          "text": "Sir, I am stuck near the 2nd stop, address seems wrong.",
+          "timestamp": 1735900005000
+        },
+        {
+          "id": "MSG2",
+          "sender": "manager",
+          "text": "Okay, share a photo of the building and I will confirm with customer.",
+          "timestamp": 1735900010000
+        }
+      ]
+    }
+  ]
+}

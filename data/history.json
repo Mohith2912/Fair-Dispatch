@@ -1,0 +1,37 @@
+[
+  {
+    "date": "Jan 24",
+    "difficulty": 92,
+    "fairness": 1.25,
+    "tasks": 8,
+    "stairs": 12
+  },
+  {
+    "date": "Jan 23",
+    "difficulty": 65,
+    "fairness": 0.98,
+    "tasks": 6,
+    "stairs": 3
+  },
+  {
+    "date": "Jan 22",
+    "difficulty": 78,
+    "fairness": 1.12,
+    "tasks": 7,
+    "stairs": 8
+  },
+  {
+    "date": "Jan 21",
+    "difficulty": 45,
+    "fairness": 0.92,
+    "tasks": 5,
+    "stairs": 1
+  },
+  {
+    "date": "Jan 20",
+    "difficulty": 88,
+    "fairness": 1.18,
+    "tasks": 9,
+    "stairs": 15
+  }
+]
