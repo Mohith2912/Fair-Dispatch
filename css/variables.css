@@ -1,9 +1,9 @@
 :root {
     /* Brand Colors */
-    --primary: #005bea;
-    --primary-light: #3b82f6;
-    --primary-dark: #1e40af;
-    --secondary: #00c6fb;
+    --primary: #22d3ee;
+    --primary-light: #67e8f9;
+    --primary-dark: #0891b2;
+    --secondary: #8b5cf6;
     
     /* Status Colors */
     --success: #10b981;
@@ -27,24 +27,24 @@
     --black: #000000;
     
     /* Background Colors */
-    --bg-body: #f8f9fc;
-    --bg-card: #ffffff;
-    --bg-sidebar: #ffffff;
-    --bg-input: #f9fafb;
-    --bg-hover: #f3f4f6;
-    --bg-active: rgba(0, 91, 234, 0.08);
+    --bg-body: #07111f;
+    --bg-card: #0d1b2e;
+    --bg-sidebar: #081522;
+    --bg-input: #0b1b2d;
+    --bg-hover: #10243a;
+    --bg-active: rgba(34, 211, 238, 0.12);
     
     /* Text Colors */
-    --text-primary: #1a202c;
-    --text-secondary: #4a5568;
-    --text-muted: #718096;
-    --text-light: #a0aec0;
+    --text-primary: #e6f7ff;
+    --text-secondary: #9bb4c8;
+    --text-muted: #668197;
+    --text-light: #48677e;
     --text-white: #ffffff;
     
     /* Border Colors */
-    --border: #e2e8f0;
-    --border-light: #edf2f7;
-    --border-dark: #cbd5e0;
+    --border: rgba(148, 197, 227, .16);
+    --border-light: rgba(148, 197, 227, .08);
+    --border-dark: rgba(148, 197, 227, .3);
     
     /* Spacing Scale */
     --space-xs: 4px;

@@ -1,8 +1,8 @@
 # FairDispatch
 
-FairDispatch is a delivery-dispatch prototype for managing drivers, delivery stops, workloads, and support requests. This repository includes an Express REST API, a plain HTML/CSS/JavaScript manager dashboard branded **FairRoute AI**, an alternative Firebase server, and an experimental Python workload-balancing model.
+FairDispatch is a delivery-dispatch prototype for managing drivers, delivery stops, workloads, and support requests. This repository includes an Express REST API, a responsive manager dashboard, an alternative Firebase server, and an experimental Python workload-balancing model.
 
-**Start with `npm start` for the local API.** The dashboard runs separately and currently combines mock data with direct Firebase access; starting the API does not connect the dashboard to it automatically.
+**Start with `npm start` for the local API.** The dashboard is a separate static application that keeps the project's original mock-data and Firebase workflows.
 
 ## Contents
 
@@ -25,18 +25,18 @@ FairDispatch is a delivery-dispatch prototype for managing drivers, delivery sto
 | Component | Entry point | Storage | Status |
 | --- | --- | --- | --- |
 | Local REST API | `src/index.js` via `npm start` | JSON files in `data/` | Default backend; no external service needed |
-| Manager dashboard | `index.html` | Mock/in-memory data, browser local storage, selected Firebase paths | Prototype; known configuration gaps listed below |
+| Manager dashboard | `index.html` and existing `js/` modules | Mock/in-memory data and selected Firebase paths | Original feature behavior with refreshed responsive styling |
 | Alternative REST API | `server.js` via `node server.js` | Firebase Realtime Database | Separate endpoint contract; additional setup required |
 | Training experiment | `train-rotation-model.py` | `models/rotation-model.joblib` | Standalone; not called by either server or dashboard |
 
-The local API supports driver lookup/login, delivery-stop progress and feedback, load creation and automatic assignment, basic ETA estimates, and support-request/chat workflows. The dashboard includes assignments, live-fleet visualization, fairness monitoring/history, disputes, and order management. Several dashboard features use simulated data.
+The local API supports driver lookup/login, delivery-stop progress and feedback, load creation and automatic assignment, basic ETA estimates, and support-request/chat workflows.
 
 ## Requirements
 
 - **Node.js 20 or newer** and npm, as declared in `package.json`.
 - Git to clone the repository.
-- A browser for the dashboard. Its Firebase SDK, Leaflet, Chart.js, fonts, and map tiles use external services and require network access.
-- Optional: Python 3 for model training or the static-server example below.
+- A modern browser for the dashboard. The Inter web font uses Google Fonts; the application falls back to the system sans-serif font offline.
+- Optional: Python 3 for model training.
 - Optional: a Firebase project with Realtime Database for Firebase-backed features.
 
 The default API requires no database server, Firebase credentials, Google Maps key, Python installation, or build step.
@@ -65,7 +65,7 @@ PORT=3001
 | --- | --- | --- |
 | `PORT` | `3001` | Listening port for `src/index.js` |
 
-`PORT` is the only environment variable read by the application code. ETA uses a local distance calculation; `GOOGLE_MAPS_API_KEY` is not used. The repository ignores `.env` and does not include an `.env.example` file. Firebase browser settings live separately in `js/config.js`.
+`PORT` is the only environment variable read by the default application. ETA uses a local distance calculation; `GOOGLE_MAPS_API_KEY` is not used.
 
 ### 3. Start the API
 
@@ -101,62 +101,17 @@ In Windows PowerShell, you can instead use:
 Invoke-RestMethod http://localhost:3001/api/health
 ```
 
-There is no page served at `/`: the default server serves API endpoints only.
+The default server exposes API endpoints only; it does not serve the dashboard at `/`.
 
 ## Dashboard setup
 
-The dashboard has no bundler or npm build command. Serve the static files separately on localhost. For example, if Python is installed, run this from the repository root in another terminal:
+The dashboard has no bundler or build command. Serve it separately from the repository root:
 
 ```sh
 python -m http.server 8080 --bind 127.0.0.1
 ```
 
-On Windows, `py -m http.server 8080 --bind 127.0.0.1` is an alternative. Then open [the dashboard](http://localhost:8080).
-
-This root-directory static server is for local development only: it can also serve backend files and local data. For hosting, publish only `index.html`, `css/`, and `js/` after addressing the limitations below.
-
-### Dashboard login and data sources
-
-The login handler accepts any nonempty username and password that pass the form's browser validation. It creates a dispatcher profile under the browser local-storage key `fairroute_user`. This is a demo login, not Firebase Authentication or the API's driver login.
-
-Most views use generated data. Firebase-backed behavior includes:
-
-| Firebase path | Use |
-| --- | --- |
-| `drivers` | Read by the rotation button |
-| `routes` | Read by the rotation button; expected to be an array |
-| `assignments/ai-rotation` | Replaced with the computed route assignments |
-| `notifications/ai-complete` | Receives a completion notification record |
-| `drivers/disputes` | Read by the disputes view through a child-added listener |
-
-For your own Firebase environment, replace the `firebase` object in `js/config.js` with your project's web-app configuration and Realtime Database URL. The checked-in configuration points to an existing project; do not assume access to it.
-
-Configure database access for your environment. The current dashboard does not sign in to Firebase, so database rules requiring authenticated access will reject these operations. Implement Firebase Authentication and suitable rules for a shared deployment; the local demo login does not authorize database access.
-
-The following illustrates the shape expected by rotation code. Add these nodes only to a dedicated development database, without replacing unrelated existing data:
-
-```json
-{
-  "drivers": {
-    "D1": { "monthlyLoad": 45, "weeklyEffort": 65, "esp32Steps": 8500 },
-    "D2": { "monthlyLoad": 75, "weeklyEffort": 55, "esp32Steps": 6200 }
-  },
-  "routes": [
-    { "id": "R1", "difficulty": 80 },
-    { "id": "R2", "difficulty": 30 }
-  ]
-}
-```
-
-Keep these driver metrics numeric and populated: missing values can produce `undefined` assignment fields and failed Firebase writes. The nested `drivers/disputes` path also shares the node that rotation treats as a driver collection; these schemas need reconciliation for combined use.
-
-### Known dashboard gaps
-
-- `index.html` references `js/pdf-export.js`, which is absent. PDF export is not a complete included feature.
-- `js/config.js` does not define `fairnessThresholds`, `statusColors`, `chartConfig`, or `refreshIntervals`, although several modules access them. Affected views may fail or show fallbacks until these settings are implemented.
-- System-health and audit-log source files exist, but the current page does not load them or expose them through the navigation switch.
-- The dashboard's local order/assignment views are not wired to `/api/loads`. Changing JSON API data will not automatically change those views.
-- The rotation button uses JavaScript rules and Firebase; it does not load the Python model. A mobile app is not included in this repository, so mobile synchronization must be verified in a separate client.
+On Windows, `py -m http.server 8080 --bind 127.0.0.1` is an alternative. Open [http://localhost:8080](http://localhost:8080). The dashboard retains the original Live Fleet, Fairness Monitor, Fairness Memory, Assignments, Disputes, Order Management, login, Firebase rotation, and notification behavior. The visual layer follows the operating-system light/dark preference.
 
 ## API reference
 
@@ -192,7 +147,7 @@ ETA returns `{ "stopId", "distanceKm", "etaSeconds", "etaText" }`. It uses strai
 | Method | Path | Body / behavior |
 | --- | --- | --- |
 | GET | `/loads` | Returns all loads |
-| POST | `/loads` | Required: `pickupAddress`, `dropAddress`; optional: `weight`, `distanceKm`, `difficulty` |
+| POST | `/loads` | Creates and AI-triages a request; required: `pickupAddress`, `dropAddress` |
 | POST | `/loads/:id/assign-auto` | No body required; selects a driver and updates the load and driver workload |
 
 Load creation returns `201` with a UUID, `unassigned` status, `assignedTo: null`, and creation timestamp. Weight and distance default to `0`; difficulty defaults to `Medium`. Assignment returns `{ "load": ..., "assignedDriver": ... }`, `404` for an unknown load, or `400` if no drivers exist.
@@ -399,16 +354,13 @@ These reads and a non-mutating ETA request were verified against the checked-in 
 | Symptom | What to check |
 | --- | --- |
 | `EADDRINUSE` | Another process uses the port. Stop it or change `PORT` for the default API. Both server variants default to `3001`. |
-| `/` or `/health` returns `404` | With `npm start`, use `/api/health`. Serve the dashboard separately. |
+| `/health` returns `404` | With `npm start`, use `/api/health`; `/` serves the dashboard. |
 | API driver login returns `401` | Seed records lack credentials. Add a compatible demo record; Firebase-server credentials belong to the other server. |
 | `D1` has no stops | Seed stops use `driver1`. Align IDs or request `/api/routes/driver1/stops`. |
 | Drivers appear equally ranked | Default assignment reads camelCase fields; the shipped drivers use different field names. |
 | Data unexpectedly appears empty | Check that the relevant file in `data/` exists and contains valid JSON; read failures are suppressed. |
 | `Cannot find module 'firebase-admin'` / missing service account | You started the optional `server.js`. Follow its setup, or use `npm start` for the local API. |
-| Firebase permission errors | Verify project configuration and database rules. Dashboard demo login does not authenticate with Firebase. |
-| Dashboard shows missing-property errors | Check the missing `AppConfig` sections listed under dashboard gaps and inspect the browser console. |
-| `pdf-export.js` returns `404` | The referenced module is absent from the repository. |
-| API updates do not appear in dashboard | The dashboard uses separate mock/Firebase data sources; API integration is not implemented. |
+| Dashboard does not load | Serve the repository statically on port `8080`; the API server does not serve frontend files. |
 | Python import errors | Activate the environment and install the four training dependencies with that environment's Python. |
 
 ## Deployment considerations
@@ -419,7 +371,7 @@ The repository is a development prototype. Before a shared or production deploym
 - Enforce stop ownership, validate request types/ranges, and prevent duplicate load assignment or task completion from inflating workload.
 - Replace whole-file JSON persistence with transactional storage, or restrict the API to a single process with appropriate write coordination. A container using the existing storage needs a writable persistent `data/` directory.
 - Add consistent asynchronous error handling, appropriate CORS policy, and request protection. The default API currently enables unrestricted CORS.
-- Reconcile API, Firebase, and dashboard schemas; complete missing dashboard settings and modules.
+- Reconcile API, Firebase, and dashboard schemas before a production integration.
 - Remove destructive Firebase startup seeding and implement database authentication/rules.
 - Serve only frontend assets publicly. Keep `.env`, service-account keys, local data, and server files out of the static site.
 

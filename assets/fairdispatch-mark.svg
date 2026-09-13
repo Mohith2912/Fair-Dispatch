@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FairDispatch logo">
+  <defs><linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse"><stop stop-color="#39d9ca"/><stop offset="1" stop-color="#5b8cff"/></linearGradient></defs>
+  <path d="M32 3 56 17v30L32 61 8 47V17L32 3Z" fill="#0e1d2c" stroke="url(#g)" stroke-width="3"/>
+  <path d="M19 22h26v7H27v7h15v7H27v10h-8V22Z" fill="url(#g)"/>
+  <circle cx="47" cy="17" r="4" fill="#a7f3d0"/>
+</svg>

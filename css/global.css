@@ -1,9 +1,17 @@
 /* Global Styles */
 body {
-    background: var(--bg-body);
+    background: radial-gradient(circle at 80% -20%, rgba(34,211,238,.12), transparent 35%), var(--bg-body);
     color: var(--text-primary);
     overflow: hidden;
 }
+
+button, input, textarea, select { font: inherit; }
+button { transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast); }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.content-header { background: rgba(8, 21, 34, .82); backdrop-filter: blur(18px); }
+.content-header h1 { letter-spacing: -.03em; }
+.main-content { background: transparent; }
+.modal-content { background: var(--bg-card); border: 1px solid var(--border); }
 
 .hide {
     display: none !important;

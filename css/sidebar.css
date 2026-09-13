@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    box-shadow: 16px 0 40px rgba(0,0,0,.18);
 }
 
 .sidebar-header {
@@ -31,6 +32,8 @@
     font-size: 18px;
     font-weight: 700;
     color: var(--text-primary);
+    letter-spacing: .16em;
+    font-size: 15px;
 }
 
 /* Sidebar Navigation */
@@ -69,7 +72,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: var(--primary);
+    background: linear-gradient(var(--primary), var(--secondary));
 }
 
 .nav-link svg {
@@ -135,7 +138,7 @@
 .main-content {
     height: 100vh;
     overflow-y: auto;
-    background: var(--bg-body);
+    background: transparent;
 }
 
 .content-header {
